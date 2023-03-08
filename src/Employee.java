@@ -2,9 +2,12 @@ public class Employee {
     private final String surname;
     private final String name;
     private final String patronymic;
-    private final int department;
-    private final int salary;
+    private  int department;
+    private  int salary;
     private static int id = 1;
+    private static int idCount = 0;
+    private static int sum = 0;
+    private static String c = null;
 
     public Employee(String surname, String name, String patronymic, int department, int salary) {
         this.surname = surname;
@@ -12,6 +15,8 @@ public class Employee {
         this.patronymic = patronymic;
         this.department = department;
         this.salary = salary;
+        idCount = idCount;
+        idCount++;
     }
 
     public String getSurname() {
@@ -32,6 +37,14 @@ public class Employee {
     public int getId() {
         return id;
     }
+    public void setDepartment(int department) {
+        this.department = department;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
 
     @Override
     public String toString() {
@@ -44,9 +57,60 @@ public class Employee {
                 "Зарплата: " + salary + "\n";
     }
 
-/*
-        String[] names = {"Иванов, Александр Александрович ", "Крюкова, Ольга Петровна", "Дудник, Андрей Романович",
-                "Медведев, Дмитрий Анатольевич", "Тринкер, Борис Давидович" , "Багдасарян, Рафаэль Мкртычевич"};
-*/
+    public static Employee[] allInfo(Employee[] a) {
+        for (Employee employee : a) {
+            System.out.println(employee);
+        }
+        return a;
+    }
 
-}
+    public static void allPaymentPerMonth(Employee[] a) {
+        for (Employee employee : a) {
+            sum += employee.getSalary();
+        }
+        System.out.println("Сумма затрат на зарплаты в месяц: " + sum);
+
+    }
+
+    public static void employeeWithSmall(Employee[] a) {
+        int b = 100_000;
+        for (Employee employee : a) {
+            if (employee.getSalary() < b) {
+                b = employee.getSalary();
+                c = employee.getName() + " " + employee.getSurname() + " " + employee.getPatronymic();
+            }
+        }
+        System.out.println("Сотрудник с минимальной зарплатой: " + b + " " + c);
+
+    }
+
+    public static void employeeWithBig(Employee[] a) {
+        int b = 0;
+        for (Employee employee : a) {
+            if (employee.getSalary() > b) {
+                b = employee.getSalary();
+                c = employee.getName() + " " + employee.getSurname() + " " + employee.getPatronymic();
+            }
+        }
+        System.out.println("Сотрудник с максимальной зарплатой: " + b + " " + c);
+    }
+
+    public static void averageSalary(Employee[] a) {
+        for (Employee employee : a) {
+            sum += employee.getSalary();
+        }
+        System.out.println("Средняя зарплата: " + (sum / a.length));
+
+    }
+
+    public static void employeeInfo(Employee[] a) {
+        for (Employee employee : a) {
+            System.out.println("Имя сотрудника: " + employee.getName() +
+                    "\n" + "Фамилия сотрудника: " + employee.getSurname() +
+                    "\n" + "Отчество сотрудника: " + employee.getPatronymic() + "\n");
+        }
+
+    }
+
+    }
+
