@@ -11,7 +11,6 @@ public class Main {
         employees[6] = new Employee("Бобров", "Рома", "Иванович", 2, 46_000);
         employees[7] = new Employee("Иванов", "Рафаэль", "Абрамович", 3, 24_000);
         employees[8] = new Employee("Раманов", "Глеб", "Петрович", 1, 54_000);
-        employees[9] = new Employee("Медведев", "Никита", "Павлович", 4, 86_000);
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите цыфру вашего вопроса: \n 1.Получить список всех сотрудников со всеми имеющимися по ним данными. \n " +
@@ -20,22 +19,22 @@ public class Main {
                 "6.Получить Ф. И. О. всех сотрудников");
         int a = sc.nextInt();
         if (a == 1) {
-            Employee.allInfo(employees);
+            Employee.printAllInfo(employees);
         }
         if (a == 2) {
-            Employee.allPaymentPerMonth(employees);
+            Employee.printAllPaymentPerMonth(employees);
         }
         if (a == 3) {
-            Employee.employeeWithSmall(employees);
+            Employee.printEmployeeMinSalary(employees);
         }
         if (a == 4) {
-            Employee.employeeWithBig(employees);
+            Employee.printEmployeeMaxSalary(employees);
         }
         if (a == 5) {
-            Employee.averageSalary(employees);
+            Employee.printAverageSalary(employees);
         }
         if (a == 6) {
-            Employee.employeeInfo(employees);
+            Employee.printEmployeeInfo(employees);
         } else if (a < 1 || a > 6) {
             System.out.println("Введено некорректное значение"); //АААААААА КАК ЖЕ ЧИСТО НЕ ОДНОГО ВАРНИНГА КАЙФФФ
         }

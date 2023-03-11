@@ -57,60 +57,78 @@ public class Employee {
                 "Зарплата: " + salary + "\n";
     }
 
-    public static Employee[] allInfo(Employee[] a) {
+    public static void  printAllInfo(Employee[] a) {
         for (Employee employee : a) {
-            System.out.println(employee);
+            if(employee != null) {
+                System.out.println(employee);
+            }
+
         }
-        return a;
     }
 
-    public static void allPaymentPerMonth(Employee[] a) {
+    public static void printAllPaymentPerMonth(Employee[] a) {
         for (Employee employee : a) {
-            sum += employee.getSalary();
+            if(employee != null) {
+                sum += employee.getSalary();
+            }
         }
         System.out.println("Сумма затрат на зарплаты в месяц: " + sum);
 
     }
 
-    public static void employeeWithSmall(Employee[] a) {
+    public static void printEmployeeMinSalary(Employee[] a) {
+
         int b = 100_000;
         for (Employee employee : a) {
+            if(employee != null) {
+
             if (employee.getSalary() < b) {
+
                 b = employee.getSalary();
+
                 c = employee.getName() + " " + employee.getSurname() + " " + employee.getPatronymic();
             }
+        }
         }
         System.out.println("Сотрудник с минимальной зарплатой: " + b + " " + c);
 
     }
 
-    public static void employeeWithBig(Employee[] a) {
+    public static void printEmployeeMaxSalary(Employee[] a) {
         int b = 0;
         for (Employee employee : a) {
+            if(employee != null) {
+
             if (employee.getSalary() > b) {
                 b = employee.getSalary();
                 c = employee.getName() + " " + employee.getSurname() + " " + employee.getPatronymic();
             }
         }
+        }
         System.out.println("Сотрудник с максимальной зарплатой: " + b + " " + c);
     }
 
-    public static void averageSalary(Employee[] a) {
+    public static void printAverageSalary(Employee[] a) {
         for (Employee employee : a) {
+            if(employee != null) {
+
             sum += employee.getSalary();
+        }
         }
         System.out.println("Средняя зарплата: " + (sum / a.length));
 
     }
 
-    public static void employeeInfo(Employee[] a) {
+    public static void printEmployeeInfo(Employee[] a) {
         for (Employee employee : a) {
+            if(employee != null) {
+
             System.out.println("Имя сотрудника: " + employee.getName() +
                     "\n" + "Фамилия сотрудника: " + employee.getSurname() +
                     "\n" + "Отчество сотрудника: " + employee.getPatronymic() + "\n");
         }
+        }
 
     }
 
-    }
-
+}
